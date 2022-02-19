@@ -10,9 +10,9 @@ export const CardContainerStyle = styled(Card)`
 
  
   &.MuiPaper-root {
-    box-shadow: 1px 1px 3px #c5c6c0, -1px 1px 3px #c5c6c0;
+    /* box-shadow: 1px 1px 3px #c5c6c0, -1px 1px 3px #c5c6c0; */
     border-radius: 1rem;
-    /* box-shadow: none; */
+    box-shadow: none;
    
   }
   img {
