@@ -1,7 +1,16 @@
+import { Home } from "./pages/Home";
+import { ContainerStyle } from "./styles/container";
+import GlobalStyle from "./styles/global";
 
 function App() {
   return (
-    <div>Criando projeto</div>
+    <>
+    <GlobalStyle/>
+    <ContainerStyle>
+      
+      <Home/>
+      </ContainerStyle>
+    </>
   );
 }
 
