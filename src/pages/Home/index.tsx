@@ -6,9 +6,7 @@ import { OrderSummary } from "../../components/OrderSummary ";
 export const Home = () => {
   return (
     <>
-      
-      {/* <ListPizzaCards/> */}
-      <OrderSummary/>
+      <ListPizzaCards/>
     </>
 
   );

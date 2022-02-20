@@ -1,21 +1,22 @@
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
-import { Home } from "./pages/Home";
-import { ContainerStyle } from "./styles/container";
-import GlobalStyle from "./styles/global";
+import { Footer } from './components/Footer'
+import { Header } from './components/Header'
+import { GlobalStorage } from './contexts/GlobalSorage'
+import { RoutesPage } from './routes/RoutesPage'
+import { ContainerStyle } from './styles/container'
+import GlobalStyle from './styles/global'
 
 function App() {
   return (
-    <>
-    <GlobalStyle/>
+    <GlobalStorage>
+      <GlobalStyle />
 
-    <Header/>
-    <ContainerStyle>
-      <Home/>
+      <Header />
+      <ContainerStyle>
+        <RoutesPage />
       </ContainerStyle>
-    <Footer/>
-    </>
-  );
+      <Footer />
+    </GlobalStorage>
+  )
 }
 
-export default App;
+export default App

@@ -10,15 +10,36 @@ import {
 } from '@mui/material'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { BoxStyle, ButtonStyled, ModalCardStyle } from './style'
+import { GlobalContext } from '../../contexts/GlobalSorage';
+import { convertPrice } from '../../utils/convertPrice';
 
-export const ModalPizza = (props: any) => {
+interface ModalPizzaPropsType {
+  openModal: boolean,
+  closeModal:() => void,
+  img:string,
+  name:string,
+  price:number,
+  ingredients: Array<string>,
+}
+
+
+export const ModalPizza = (props: ModalPizzaPropsType) => {
   const [numberPizzas, setNumberPizzas] = useState(1)
   const [orderNotes, setOrderNotes] = useState('')
 
+  const context = useContext(GlobalContext);
+
   const addOrder = () => {
-    console.log("Pedido add");
+    const order = {
+      namePizza: props.name,
+      numberPizza: numberPizzas,
+      orderNotes: orderNotes,
+      price: props.price,
+    }
+    context.setOrderInfo([...context.orderInfo, order]);
+    
     props.closeModal();
   }
 
@@ -52,13 +73,22 @@ export const ModalPizza = (props: any) => {
       aria-describedby="modal pizza informations"
     >
       <ModalCardStyle>
-        <CardMedia component="img" image={props.img} alt={'Teste'} />
+        <CardMedia component="img" image={props.img} alt={`Pizza ` + props.name} />
         <CardContent>
           <Typography component="p" data-content="title">
-            Pizza Romana
+          {`Pizza ` + props.name}
           </Typography>
           <Typography component="p" data-content="description">
-            Tommato, mozarella di bufala
+           {
+             props.ingredients
+             .map((item:string, index: number) => {
+               if(index === 0) {
+                 item = item[0].toUpperCase() + item.substring(1);
+               }
+               return item;
+             })
+             .toString()
+           }
           </Typography>
 
           <TextField
@@ -84,7 +114,7 @@ export const ModalPizza = (props: any) => {
             </Box>
             <ButtonStyled variant="contained" onClick={addOrder}>
               <span>ADD</span>
-              <span> ${(numberPizzas * 7.5).toFixed(2).replace('.',',')}</span>  
+              <span>{convertPrice((numberPizzas * props.price))}</span>  
             </ButtonStyled>
           </BoxStyle>
         </CardContent>

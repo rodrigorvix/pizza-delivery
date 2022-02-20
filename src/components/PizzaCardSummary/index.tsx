@@ -5,14 +5,24 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 
 import {CardContentStyled, PizzaCardSummaryStyled } from "./style";
+import { convertPrice } from "../../utils/convertPrice";
 
-export const PizzaCardSummary = () => {
+
+interface OrderInfoPropsType {
+  namePizza?: string
+  numberPizza?:number,
+  orderNotes?: string,
+  price?: number,
+  
+}
+
+export const PizzaCardSummary = (props:OrderInfoPropsType) => {
   return(
     <PizzaCardSummaryStyled>
         <CardContentStyled>
          <Box data-content="container-summary-pizza">
          <Typography component="p" data-content="title">
-            Pizza Romana
+            {`Pizza ` + props.namePizza}
           </Typography>
 
           <TextField
@@ -22,6 +32,7 @@ export const PizzaCardSummary = () => {
             id="orderNotes"
             label="Order notes"
             name="orderNotes"
+            value={props.orderNotes}
             // value={orderNotes}
             // onChange={handleChangeOrderNotes}
           />
@@ -32,13 +43,13 @@ export const PizzaCardSummary = () => {
               <IconButton  title='Remove number'>
                 <RemoveCircleIcon />
               </IconButton>
-              <Box data-content="number-pizzas">1</Box>
+              <Box data-content="number-pizzas">{props.numberPizza}</Box>
               <IconButton  title='Add number'>
                 <AddCircleIcon/>
               </IconButton>
             </Box>
             <Box data-content="container-price">
-              <span>$7,50</span>
+             {props.price && props.numberPizza ? convertPrice((props.price * props.numberPizza)) : ''}
             </Box>
           </Box>
 

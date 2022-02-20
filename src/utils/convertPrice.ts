@@ -1,0 +1,1 @@
+export const convertPrice = (price:number) => `$` + price.toFixed(2).replace('.',',');

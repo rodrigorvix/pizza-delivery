@@ -1,12 +1,24 @@
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import { useNavigate } from 'react-router-dom';
 import { OrderCartStyled } from './style';
 
-export const OrderCart = () => {
+interface OrderCartPropsType {
+  countOrder: number
+}
+
+
+export const OrderCart = ({countOrder}: OrderCartPropsType) => {
+  const navigate = useNavigate();
+
+  const goToOrderPage = () => {
+    navigate('/order');
+  }
+
   return (
 
-    <OrderCartStyled title='Go to order page'>
+    <OrderCartStyled title='Go to order page' onClick={goToOrderPage}>
       <ShoppingCartCheckoutIcon/>
-      <span>1 item</span>
+      <span>{countOrder}  item</span>
     </OrderCartStyled>
   );
 }

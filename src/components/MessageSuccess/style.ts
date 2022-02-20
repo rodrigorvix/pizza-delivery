@@ -1,8 +1,7 @@
-import { Dialog } from "@mui/material";
-import styled from "styled-components";
+import { Dialog } from '@mui/material'
+import styled from 'styled-components'
 
 export const MessageSuccessStyled = styled(Dialog)`
-  
   .MuiPaper-root {
     width: 340px;
 
@@ -12,7 +11,6 @@ export const MessageSuccessStyled = styled(Dialog)`
       color: var(--green);
       text-transform: uppercase;
       text-shadow: 0px 2px 2px var(--black-300);
-
     }
   }
 
@@ -22,12 +20,11 @@ export const MessageSuccessStyled = styled(Dialog)`
       color: var(--black-500);
     }
   }
-.MuiButton-root {
-  color: var(--green);
+  .MuiButton-root {
+    color: var(--green);
 
-  &:hover {
-    filter: brightness(0.8);
+    &:hover {
+      filter: brightness(0.8);
+    }
   }
-}
-
-`;
+`
