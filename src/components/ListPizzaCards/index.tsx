@@ -6,7 +6,7 @@ export const ListPizzaCards = () => {
   return (
 
     <ListPizzaCardsStyle>
-      <Grid container spacing={2}>
+      <Grid container spacing={3}>
   
               <Grid item xs={6} sm={4} md={3} lg={4}>
                 <PizzaCard/>

@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@mui/material";
+import { Box, Card, CardContent } from "@mui/material";
 
 import styled from "styled-components";
 
@@ -10,10 +10,9 @@ export const CardContainerStyle = styled(Card)`
 
  
   &.MuiPaper-root {
-    /* box-shadow: 1px 1px 3px #c5c6c0, -1px 1px 3px #c5c6c0; */
     border-radius: 1rem;
     box-shadow: none;
-   
+  
   }
   img {
     height: 140px;
@@ -48,10 +47,22 @@ export const CardContentStyle = styled(CardContent)`
     font-weight: 400;
   }
   p[data-content="price"] {
-    margin-top: 0.75rem;
-    color:var(--black-700);
+   
+   color:var(--black-700);
+   font-size: 1.75rem;
+   font-weight: 700;
+ }
+`;
+
+export const BoxStyle = styled(Box)`
+ margin-top: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  svg {
     font-size: 1.75rem;
-    font-weight: 500;
+    color:var(--green)
   }
 `;
 
