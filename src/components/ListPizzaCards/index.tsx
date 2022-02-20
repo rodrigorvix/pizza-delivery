@@ -1,4 +1,5 @@
 import { Grid } from "@mui/material";
+import { OrderCart } from "../OrderCart";
 import { PizzaCard } from "../PizzaCard";
 import { ListPizzaCardsStyle } from "./style";
 
@@ -23,8 +24,9 @@ export const ListPizzaCards = () => {
               <Grid item xs={6} sm={4} md={3} lg={4}>
                 <PizzaCard/>
               </Grid>
-    
       </Grid>
+
+      <OrderCart/>
     </ListPizzaCardsStyle>
   );
 }
