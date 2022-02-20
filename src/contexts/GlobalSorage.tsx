@@ -1,38 +1,37 @@
-import { createContext, Dispatch, ReactNode, SetStateAction, useState } from "react";
-
+import { createContext, ReactNode, useState } from 'react'
 
 interface OrderInfoPropsType {
-  id?:number,
+  id?: number
   namePizza?: string
-  numberPizza?:number,
-  orderNotes?: string,
-  price?: number,
-  
+  numberPizza?: number
+  orderNotes?: string
+  price?: number
 }
 
 interface ResultContext {
-  orderInfo: Array<OrderInfoPropsType>,
-  setOrderInfo: (order: Array<OrderInfoPropsType>) => void,
-  deliveryTime: number,
-  setDeliveryTime: (time: number) => void,
- 
+  orderInfo: Array<OrderInfoPropsType>
+  setOrderInfo: (order: Array<OrderInfoPropsType>) => void
+  deliveryTime: number
+  setDeliveryTime: (time: number) => void
 }
 
 interface ContextPropsType {
-  children:ReactNode
+  children: ReactNode
 }
 
-export const GlobalContext = createContext({} as ResultContext);
+export const GlobalContext = createContext({} as ResultContext)
 
-export const GlobalStorage = (props:ContextPropsType) => {
-
-  const [orderInfo, setOrderInfo] = useState<OrderInfoPropsType[]>([] as OrderInfoPropsType[]);
+export const GlobalStorage = (props: ContextPropsType) => {
+  const [orderInfo, setOrderInfo] = useState<OrderInfoPropsType[]>(
+    [] as OrderInfoPropsType[],
+  )
   const [deliveryTime, setDeliveryTime] = useState(0)
-  
-  
+
   return (
-    <GlobalContext.Provider value={{orderInfo, setOrderInfo, deliveryTime, setDeliveryTime}}>
+    <GlobalContext.Provider
+      value={{ orderInfo, setOrderInfo, deliveryTime, setDeliveryTime }}
+    >
       {props.children}
     </GlobalContext.Provider>
-  );
+  )
 }

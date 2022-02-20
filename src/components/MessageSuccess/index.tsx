@@ -1,45 +1,50 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
-import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { GlobalContext } from "../../contexts/GlobalSorage";
-import { MessageSuccessStyled } from "./style";
+import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 
- interface MessageSuccessPropsType {
-   open: boolean,
-   close: () => void,
- }
+import {
+  Button,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from '@mui/material'
 
+import { GlobalContext } from '../../contexts/GlobalSorage'
 
-export const MessageSuccess = (props:MessageSuccessPropsType) => {
+import { MessageSuccessStyled } from './style'
 
-  const context = useContext(GlobalContext);
-  const navigate = useNavigate();
+interface MessageSuccessPropsType {
+  open: boolean
+  close: () => void
+}
 
-  const goHomePage = ()=> {
-    props.close();
+export const MessageSuccess = (props: MessageSuccessPropsType) => {
+  const context = useContext(GlobalContext)
+  const navigate = useNavigate()
+
+  const goHomePage = () => {
+    props.close()
     context.setOrderInfo([])
     context.setDeliveryTime(0)
     navigate('/')
   }
-  
-  return(
-    <MessageSuccessStyled
-        open={props.open}
-        aria-labelledby="message-successs"
-        aria-describedby="Message success order"
-      >
-        <DialogTitle id="message-success-title">
-          "Success !"
-        </DialogTitle>
-       <DialogContent>
-         <DialogContentText>
-         Your order will be delivered in <span>{context.deliveryTime / 60000} minutes</span>
-         </DialogContentText>
-       </DialogContent>
-        <DialogActions>
-          <Button onClick={goHomePage}>Back to home page</Button>
-        </DialogActions>
-      </MessageSuccessStyled>
 
-  );
+  return (
+    <MessageSuccessStyled
+      open={props.open}
+      aria-labelledby="message-successs"
+      aria-describedby="Message success order"
+    >
+      <DialogTitle id="message-success-title">"Success !"</DialogTitle>
+      <DialogContent>
+        <DialogContentText>
+          Your order will be delivered in{' '}
+          <span>{context.deliveryTime / 60000} minutes</span>
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={goHomePage}>Back to home page</Button>
+      </DialogActions>
+    </MessageSuccessStyled>
+  )
 }

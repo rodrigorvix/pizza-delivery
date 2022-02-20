@@ -1,6 +1,7 @@
+import { useContext, useState } from 'react'
+
 import {
   Box,
-  Button,
   CardContent,
   CardMedia,
   IconButton,
@@ -8,29 +9,28 @@ import {
   TextField,
   Typography,
 } from '@mui/material'
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
-import { useContext, useState } from 'react'
+import AddCircleIcon from '@mui/icons-material/AddCircle'
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle'
+
+import { GlobalContext } from '../../contexts/GlobalSorage'
+import { convertPrice } from '../../utils/convertPrice'
+
 import { BoxStyle, ButtonStyled, ModalCardStyle } from './style'
-import { GlobalContext } from '../../contexts/GlobalSorage';
-import { convertPrice } from '../../utils/convertPrice';
 
 interface ModalPizzaPropsType {
-  openModal: boolean,
-  closeModal:() => void,
-  img:string,
-  name:string,
-  price:number,
-  ingredients: Array<string>,
-  
+  openModal: boolean
+  closeModal: () => void
+  img: string
+  name: string
+  price: number
+  ingredients: Array<string>
 }
-
 
 export const ModalPizza = (props: ModalPizzaPropsType) => {
   const [numberPizzas, setNumberPizzas] = useState(1)
   const [orderNotes, setOrderNotes] = useState('')
 
-  const context = useContext(GlobalContext);
+  const context = useContext(GlobalContext)
 
   const addOrder = () => {
     const order = {
@@ -38,16 +38,15 @@ export const ModalPizza = (props: ModalPizzaPropsType) => {
       numberPizza: numberPizzas,
       orderNotes: orderNotes,
       price: props.price,
-      id:Math.floor(Date.now() * Math.random()),
-      
+      id: Math.floor(Date.now() * Math.random()),
     }
-    context.setOrderInfo([...context.orderInfo, order]);
-    
-    props.closeModal();
+    context.setOrderInfo([...context.orderInfo, order])
+
+    props.closeModal()
   }
 
   const addNumberPizzas = () => {
-    if(numberPizzas === 10) {
+    if (numberPizzas === 10) {
       setNumberPizzas(10)
       return
     }
@@ -55,7 +54,7 @@ export const ModalPizza = (props: ModalPizzaPropsType) => {
   }
 
   const removeNumberPizzas = () => {
-    if(numberPizzas === 1) {
+    if (numberPizzas === 1) {
       setNumberPizzas(1)
       return
     }
@@ -76,22 +75,24 @@ export const ModalPizza = (props: ModalPizzaPropsType) => {
       aria-describedby="modal pizza informations"
     >
       <ModalCardStyle>
-        <CardMedia component="img" image={props.img} alt={`Pizza ` + props.name} />
+        <CardMedia
+          component="img"
+          image={props.img}
+          alt={`Pizza ` + props.name}
+        />
         <CardContent>
           <Typography component="p" data-content="title">
-          {`Pizza ` + props.name}
+            {`Pizza ` + props.name}
           </Typography>
           <Typography component="p" data-content="description">
-           {
-             props.ingredients
-             .map((item:string, index: number) => {
-               if(index === 0) {
-                 item = item[0].toUpperCase() + item.substring(1);
-               }
-               return item;
-             })
-             .toString()
-           }
+            {props.ingredients
+              .map((item: string, index: number) => {
+                if (index === 0) {
+                  item = item[0].toUpperCase() + item.substring(1)
+                }
+                return item
+              })
+              .toString()}
           </Typography>
 
           <TextField
@@ -107,21 +108,20 @@ export const ModalPizza = (props: ModalPizzaPropsType) => {
           />
           <BoxStyle>
             <Box data-content="container-number-pizzas">
-              <IconButton onClick={removeNumberPizzas} title='Remove number'>
+              <IconButton onClick={removeNumberPizzas} title="Remove number">
                 <RemoveCircleIcon />
               </IconButton>
               <div data-content="number-pizzas">{numberPizzas}</div>
-              <IconButton onClick={addNumberPizzas} title='Add number'>
-                <AddCircleIcon/>
+              <IconButton onClick={addNumberPizzas} title="Add number">
+                <AddCircleIcon />
               </IconButton>
             </Box>
             <ButtonStyled variant="contained" onClick={addOrder}>
               <span>ADD</span>
-              <span>{convertPrice((numberPizzas * props.price))}</span>  
+              <span>{convertPrice(numberPizzas * props.price)}</span>
             </ButtonStyled>
           </BoxStyle>
         </CardContent>
-       
       </ModalCardStyle>
     </Modal>
   )

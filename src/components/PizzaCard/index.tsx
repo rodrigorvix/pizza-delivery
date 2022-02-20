@@ -1,32 +1,31 @@
-import { CardActionArea, CardMedia, Typography } from "@mui/material";
-import { BoxStyle, CardContainerStyle, CardContentStyle } from "./styles";
-import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { useState } from 'react'
 
+import { CardActionArea, CardMedia, Typography } from '@mui/material'
+import AddCircleIcon from '@mui/icons-material/AddCircle'
 
-import { useState } from "react";
-import { ModalPizza } from "../ModalPizza";
-import { convertPrice } from "../../utils/convertPrice";
+import { ModalPizza } from '../ModalPizza'
+import { convertPrice } from '../../utils/convertPrice'
 
+import { BoxStyle, CardContainerStyle, CardContentStyle } from './styles'
 
 interface DataPizzaType {
-  name: string,
-  price: number,
-  ingredients: Array<string>,
+  name: string
+  price: number
+  ingredients: Array<string>
 }
 
-export const PizzaCard = ({name, price, ingredients}: DataPizzaType) => {
+export const PizzaCard = ({ name, price, ingredients }: DataPizzaType) => {
+  const [openModal, setOpenModal] = useState(false)
 
-  const [openModal, setOpenModal] = useState(false);
+  const handleOpenModal = () => setOpenModal(true)
+  const handleCloseModal = () => setOpenModal(false)
 
-  const handleOpenModal = () => setOpenModal(true);
-  const handleCloseModal = () => setOpenModal(false);
-
-  if(name.includes("Pizza")) {
-    name= name.slice(-6)
+  if (name.includes('Pizza')) {
+    name = name.slice(-6)
   }
 
-  const img = process.env.PUBLIC_URL + `assets/pizza-${name.toLowerCase()}.jpg`;
- 
+  const img = process.env.PUBLIC_URL + `assets/pizza-${name.toLowerCase()}.jpg`
+
   return (
     <>
       <CardContainerStyle>
@@ -38,25 +37,22 @@ export const PizzaCard = ({name, price, ingredients}: DataPizzaType) => {
             </Typography>
             <Typography component="p" data-content="description">
               <span data-content="title-description">Ingredients:</span>
-              {ingredients.map((ingredient:string, index:number) => {
-                return(
-                  <span key={index}>{ingredient}</span>
-                );
+              {ingredients.map((ingredient: string, index: number) => {
+                return <span key={index}>{ingredient}</span>
               })}
             </Typography>
 
             <BoxStyle>
-            <Typography component="p" data-content="price">
-            {convertPrice(price)}
-            </Typography>
-              <AddCircleIcon aria-label="Add order'"/>   
-            </BoxStyle>  
-            
+              <Typography component="p" data-content="price">
+                {convertPrice(price)}
+              </Typography>
+              <AddCircleIcon aria-label="Add order'" />
+            </BoxStyle>
           </CardContentStyle>
         </CardActionArea>
       </CardContainerStyle>
 
-      <ModalPizza 
+      <ModalPizza
         openModal={openModal}
         closeModal={handleCloseModal}
         img={img}
@@ -64,6 +60,6 @@ export const PizzaCard = ({name, price, ingredients}: DataPizzaType) => {
         price={price}
         ingredients={ingredients}
       />
-      </>
-  );
+    </>
+  )
 }

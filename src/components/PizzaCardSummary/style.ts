@@ -5,7 +5,6 @@ export const PizzaCardSummaryStyled = styled(Card)`
   min-height: 160px;
   width: 100%;
   border-bottom: 1px solid var(--black-300);
- 
 
   & .MuiCardContent-root:last-child {
     padding-bottom: 0.5rem;
@@ -26,8 +25,6 @@ export const CardContentStyled = styled(CardContent)`
   }
 
   div[data-content='container-summary-pizza'] {
-
-
     width: 100%;
     display: flex;
     align-items: center;
@@ -75,9 +72,9 @@ export const CardContentStyled = styled(CardContent)`
     }
   }
 
-  div[data-content="remove-order"]{
-      svg {
-        color: var(--red);
-      }
+  div[data-content='remove-order'] {
+    svg {
+      color: var(--red);
     }
+  }
 `

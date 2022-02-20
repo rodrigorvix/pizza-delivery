@@ -1,21 +1,12 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  CardMedia,
-  IconButton,
-  TextField,
-  Typography,
-} from '@mui/material'
-import AddCircleIcon from '@mui/icons-material/AddCircle'
-import RemoveCircleIcon from '@mui/icons-material/RemoveCircle'
+import { useContext } from 'react'
+
+import { Box, IconButton, TextField, Typography } from '@mui/material'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline'
 
-import { CardContentStyled, PizzaCardSummaryStyled } from './style'
 import { convertPrice } from '../../utils/convertPrice'
-import Context from '@mui/base/TabsUnstyled/TabsContext'
-import { useContext } from 'react'
 import { GlobalContext } from '../../contexts/GlobalSorage'
+
+import { CardContentStyled, PizzaCardSummaryStyled } from './style'
 
 interface OrderInfoPropsType {
   namePizza?: string

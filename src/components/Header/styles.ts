@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HeaderStyled = styled.header`
   position: fixed;
@@ -12,21 +12,20 @@ export const HeaderStyled = styled.header`
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  
+
   box-shadow: 4px 4px 4px var(--black-300);
   background-color: var(--red);
   color: white;
 
   h1 {
-  font-size: 2.75rem;
-  text-transform: uppercase;
-  color: white;
-  text-shadow: 0px 2px 2px var(--black-500);
+    font-size: 2.75rem;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 0px 2px 2px var(--black-500);
   }
 
   h2 {
     font-weight: normal;
     font-size: 1.25rem;
   }
-
-`;
+`
