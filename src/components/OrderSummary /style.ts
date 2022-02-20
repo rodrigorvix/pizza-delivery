@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
 export const OrderSummaryStyled = styled.main`
+  
   h2 {
+    
     margin: 1rem 0;
     text-align: center;
     font-size: 2rem;
@@ -12,9 +14,14 @@ export const OrderSummaryStyled = styled.main`
   div[data-content='order-amount'] {
     margin-top: 1rem;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     gap: 0.5rem;
+
+    svg {
+      font-size: 3rem;
+      color: var(--green);
+    }
 
     span {
       font-size: 1.25rem;
@@ -30,8 +37,12 @@ export const OrderSummaryStyled = styled.main`
     margin: 2rem 0;
     display: flex;
     justify-content: center;
+    
+
     .MuiButton-root {
       background-color: var(--green);
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
 
       &:hover {
         filter: brightness(0.8);

@@ -6,12 +6,11 @@ export const CardContainerStyle = styled(Card)`
   height: 400px;
   width: 170px;
   padding: 0.625rem;
-  text-align:center;
-  
+  text-align: center;
 
   &.MuiPaper-root {
     border-radius: 1rem;
-    /* box-shadow: none; */
+    box-shadow: none;
 
     .MuiButtonBase-root {
       height: 100%;
@@ -23,7 +22,6 @@ export const CardContainerStyle = styled(Card)`
       -2px -2px 2px var(--gray), -2px 2px 2px var(--gray);
     border-radius: 50%;
   }
-
 `
 
 export const CardContentStyle = styled(CardContent)`
@@ -54,7 +52,7 @@ export const CardContentStyle = styled(CardContent)`
     font-size: 0.875rem;
     font-weight: 400;
 
-    span[data-content="title-description"]{
+    span[data-content='title-description'] {
       margin: 0.5rem 0;
       font-weight: 500;
     }

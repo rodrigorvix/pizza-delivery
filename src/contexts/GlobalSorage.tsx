@@ -12,7 +12,9 @@ interface OrderInfoPropsType {
 
 interface ResultContext {
   orderInfo: Array<OrderInfoPropsType>,
-  setOrderInfo: (order: Array<OrderInfoPropsType>) => void
+  setOrderInfo: (order: Array<OrderInfoPropsType>) => void,
+  deliveryTime: number,
+  setDeliveryTime: (time: number) => void,
  
 }
 
@@ -25,10 +27,11 @@ export const GlobalContext = createContext({} as ResultContext);
 export const GlobalStorage = (props:ContextPropsType) => {
 
   const [orderInfo, setOrderInfo] = useState<OrderInfoPropsType[]>([] as OrderInfoPropsType[]);
+  const [deliveryTime, setDeliveryTime] = useState(0)
   
   
   return (
-    <GlobalContext.Provider value={{orderInfo, setOrderInfo}}>
+    <GlobalContext.Provider value={{orderInfo, setOrderInfo, deliveryTime, setDeliveryTime}}>
       {props.children}
     </GlobalContext.Provider>
   );

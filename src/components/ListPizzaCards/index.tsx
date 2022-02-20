@@ -17,8 +17,6 @@ export const ListPizzaCards = () => {
   
   const context = useContext(GlobalContext);
 
-  console.log(context.orderInfo);
-
   useEffect(() => {
 
     getListPizzas();

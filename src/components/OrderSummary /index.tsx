@@ -1,10 +1,12 @@
-import { Box, Button } from '@mui/material'
+import { Button, IconButton } from '@mui/material'
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import { useContext, useState } from 'react'
 import { GlobalContext } from '../../contexts/GlobalSorage'
 import { convertPrice } from '../../utils/convertPrice'
 import { MessageSuccess } from '../MessageSuccess'
 import { PizzaCardSummary } from '../PizzaCardSummary'
 import { OrderSummaryStyled } from './style'
+import { useNavigate } from 'react-router-dom';
 
 interface OrderInfoPropsType {
   namePizza?: string
@@ -16,8 +18,10 @@ interface OrderInfoPropsType {
 }
 
 export const OrderSummary = () => {
+
   const [openMessageSuccess, setOpenMessageSuccess] = useState(false);
   const context = useContext(GlobalContext);
+  const navigate = useNavigate();
 
   const summationPrices = context.orderInfo
     .map((order:OrderInfoPropsType) => {
@@ -30,8 +34,21 @@ export const OrderSummary = () => {
     setOpenMessageSuccess(false);
   }
 
-  const confirmOrder = () => {
-    setOpenMessageSuccess(true);
+  const handleConfirmOrder = async () => {
+
+      const response = await fetch("./server/order.json");
+      const data = await response.json();
+      
+      if(data.success) {
+        context.setDeliveryTime(data.deliveryTime)
+        setOpenMessageSuccess(true);
+        return;
+      }
+    
+  }
+
+  const handleBackHome = () => {
+    navigate('/')
   }
 
   return (
@@ -53,12 +70,18 @@ export const OrderSummary = () => {
      
       
       <div data-content="order-amount">
+        <IconButton onClick={handleBackHome} title='Back to home page'>
+          <ArrowCircleLeftIcon/>
+        </IconButton>
+        
+        <div>
         <span>Order amount: </span>
         <span>{convertPrice(summationPrices)}</span>
+        </div>
       </div>
 
       <div data-content="button">
-        <Button variant="contained" onClick={confirmOrder}>CONFIRM THE ORDER</Button>
+        <Button variant="contained" onClick={handleConfirmOrder}>CONFIRM THE ORDER</Button>
       </div>
 
     <MessageSuccess

@@ -25,12 +25,8 @@ const GlobalStyle = createGlobalStyle`
     font-size: 87.5%;
   }
 }
-body {
-  /* background: var(--black-500);
-  color: var(--white); */
-}
+
 body, button, p, span {
-  /* font:400 1rem 'Roboto', sans-serif; */
   font:400 1rem 'Open Sans', sans-serif;
 }
 

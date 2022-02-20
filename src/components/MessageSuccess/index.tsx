@@ -1,11 +1,25 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../../contexts/GlobalSorage";
 import { MessageSuccessStyled } from "./style";
 
-export const MessageSuccess = (props:any) => {
+ interface MessageSuccessPropsType {
+   open: boolean,
+   close: () => void,
+ }
+
+
+export const MessageSuccess = (props:MessageSuccessPropsType) => {
+
+  const context = useContext(GlobalContext);
+  const navigate = useNavigate();
 
   const goHomePage = ()=> {
     props.close();
-    console.log("Ir para home page")
+    context.setOrderInfo([])
+    context.setDeliveryTime(0)
+    navigate('/')
   }
   
   return(
@@ -15,11 +29,11 @@ export const MessageSuccess = (props:any) => {
         aria-describedby="Message success order"
       >
         <DialogTitle id="message-success-title">
-          {"Success !"}
+          "Success !"
         </DialogTitle>
        <DialogContent>
          <DialogContentText>
-         Your order will be delivered in x minutes
+         Your order will be delivered in <span>{context.deliveryTime / 60000} minutes</span>
          </DialogContentText>
        </DialogContent>
         <DialogActions>

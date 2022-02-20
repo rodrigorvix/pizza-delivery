@@ -20,11 +20,14 @@ export const CardContentStyled = styled(CardContent)`
   gap: 1.5rem;
 
   p[data-content='title'] {
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
   }
 
   div[data-content='container-summary-pizza'] {
+
+
     width: 100%;
     display: flex;
     align-items: center;
