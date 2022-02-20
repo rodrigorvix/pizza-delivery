@@ -35,7 +35,7 @@ export const MessageSuccess = (props: MessageSuccessPropsType) => {
       aria-labelledby="message-successs"
       aria-describedby="Message success order"
     >
-      <DialogTitle id="message-success-title">"Success !"</DialogTitle>
+      <DialogTitle id="message-success-title">Success !!!</DialogTitle>
       <DialogContent>
         <DialogContentText>
           Your order will be delivered in{' '}

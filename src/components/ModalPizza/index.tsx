@@ -42,6 +42,8 @@ export const ModalPizza = (props: ModalPizzaPropsType) => {
     }
     context.setOrderInfo([...context.orderInfo, order])
 
+    setNumberPizzas(1);
+
     props.closeModal()
   }
 
