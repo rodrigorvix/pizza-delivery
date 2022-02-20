@@ -54,13 +54,13 @@ export const CardContentStyled = styled(CardContent)`
         padding: 0;
       }
 
-      div[data-content='number-pizzas'] {
+      span {
         font-size: 1rem;
+        font-weight: 700;
       }
 
-      svg {
-        font-size: 1.75rem;
-        color: var(--green);
+      div[data-content='number-pizzas'] {
+        font-size: 1rem;
       }
     }
 

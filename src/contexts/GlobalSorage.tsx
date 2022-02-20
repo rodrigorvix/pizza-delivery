@@ -2,6 +2,7 @@ import { createContext, Dispatch, ReactNode, SetStateAction, useState } from "re
 
 
 interface OrderInfoPropsType {
+  id?:number,
   namePizza?: string
   numberPizza?:number,
   orderNotes?: string,

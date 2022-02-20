@@ -1,6 +1,7 @@
 import { Box, Button } from '@mui/material'
 import { useContext, useState } from 'react'
 import { GlobalContext } from '../../contexts/GlobalSorage'
+import { convertPrice } from '../../utils/convertPrice'
 import { MessageSuccess } from '../MessageSuccess'
 import { PizzaCardSummary } from '../PizzaCardSummary'
 import { OrderSummaryStyled } from './style'
@@ -10,6 +11,7 @@ interface OrderInfoPropsType {
   numberPizza?:number,
   orderNotes?: string,
   price?: number,
+  id?:number,
   
 }
 
@@ -17,6 +19,13 @@ export const OrderSummary = () => {
   const [openMessageSuccess, setOpenMessageSuccess] = useState(false);
   const context = useContext(GlobalContext);
 
+  const summationPrices = context.orderInfo
+    .map((order:OrderInfoPropsType) => {
+    return order.price && order.numberPizza ? order.price * order.numberPizza : 0;
+  }).reduce((acc:number, cur:number) => {
+    return acc + cur
+  })
+  
   const handleCloseMessage = () => {
     setOpenMessageSuccess(false);
   }
@@ -32,11 +41,12 @@ export const OrderSummary = () => {
       {context.orderInfo.map((order: OrderInfoPropsType, index:number ) => {
         return(
           <PizzaCardSummary 
-          key={index} 
+          key={order.id} 
           namePizza={order.namePizza}
           numberPizza={order.numberPizza}
           orderNotes={order.orderNotes}
           price={order.price}
+          id={order.id}
           />
         );
       })}
@@ -44,7 +54,7 @@ export const OrderSummary = () => {
       
       <div data-content="order-amount">
         <span>Order amount: </span>
-        <span>$7,50</span>
+        <span>{convertPrice(summationPrices)}</span>
       </div>
 
       <div data-content="button">

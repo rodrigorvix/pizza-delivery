@@ -22,6 +22,7 @@ interface ModalPizzaPropsType {
   name:string,
   price:number,
   ingredients: Array<string>,
+  
 }
 
 
@@ -37,6 +38,8 @@ export const ModalPizza = (props: ModalPizzaPropsType) => {
       numberPizza: numberPizzas,
       orderNotes: orderNotes,
       price: props.price,
+      id:Math.floor(Date.now() * Math.random()),
+      
     }
     context.setOrderInfo([...context.orderInfo, order]);
     
