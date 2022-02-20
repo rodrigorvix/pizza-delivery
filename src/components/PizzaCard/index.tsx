@@ -1,19 +1,25 @@
-import { Box, CardActionArea, CardMedia, IconButton, Typography } from "@mui/material";
+import { CardActionArea, CardMedia, Typography } from "@mui/material";
 import { BoxStyle, CardContainerStyle, CardContentStyle } from "./styles";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 import pizzaTest from '../../assets/pizza-romana.jpg'
+import { useState } from "react";
+import { ModalPizza } from "../ModalPizza";
 
 export const PizzaCard = () => {
 
-  function handleOpen() {
-    console.log("Cliquei")
-  }
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOpenModal = () => setOpenModal(true);
+  const handleCloseModal = () => setOpenModal(false);
+
 
   return (
+    <>
+   
     
       <CardContainerStyle>
-        <CardActionArea onClick={handleOpen}>
+        <CardActionArea onClick={handleOpenModal}>
           <CardMedia component="img" image={pizzaTest} alt="Teste" />
           <CardContentStyle>
             <Typography component="p" data-content="title">
@@ -27,12 +33,18 @@ export const PizzaCard = () => {
             <Typography component="p" data-content="price">
             $7,50
             </Typography>
-              <AddCircleIcon/>   
+              <AddCircleIcon aria-label="Add order'"/>   
             </BoxStyle>  
             
           </CardContentStyle>
         </CardActionArea>
       </CardContainerStyle>
-  
+
+      <ModalPizza 
+        openModal={openModal}
+        closeModal={handleCloseModal}
+        img={pizzaTest}
+      />
+      </>
   );
 }
