@@ -1,46 +1,122 @@
-# Getting Started with Create React App
+<h1 align="center">
+    <img src="./public/favicon.ico" alt="Ícone de Pizza" width="30" height="30"/>
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2 align="center"> 
+	  Pizza Delivery
+</h2>
 
-## Available Scripts
+<p align="center">
+ <a href="#📷-demonstração">Demonstração</a> •
+ <a href="#ℹ️-sobre">Sobre</a> • 
+ <a href="#🛠-tecnologias">Tecnologias</a> • 
+ <a href="#🔗-link-do-projeto">Link do projeto</a> • 
+ <a href="#🚀-como-executar">Como executar</a> •
+ <a href="#📚-construção-do-projeto-e-aprendizados">Construção do projeto e Aprendizados</a> • 
+ <a href="#👨‍💻-autor">Autor</a> • 
+ 
+</p>
 
-In the project directory, you can run:
+<p align="center">
+  <a href="https://www.linkedin.com/in/rodrigovitoriense/">
+<img src="https://img.shields.io/static/v1?label=DEVELOPER&message=RODRIGOVITORIENSE&color=7159c1&style=for-the-badge&logo="/>
+</a>
+<img src="https://img.shields.io/static/v1?label=LICENSE&message=MIT&color=7159c1&style=for-the-badge&logo="/>
+</p><br>
 
-### `yarn start`
+# 📷 Demonstração
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<img src="./public/assets/preview.gif" style="margin:auto; display:flex; justify-content:center;" alt="Demonstração da aplicação.">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# ℹ️ Sobre
 
-### `yarn build`
+<p>
+Projeto desenvolvido para praticar o uso da biblioteca React.JS e com o objetivo de simular uma pequena aplicação web de pedidos de pizzas.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Neste projeto, os usuários devem ser capazes de:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Ver o tamanho dos elementos ajustados com base no tamanho da tela de seus dispositivos;
+- Adicionar ou remover o número de pizzas do pedido;
+- Realizar as operações de adicionar ou remover um pedido;
+- Efetuar o pedido.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Os dados das pizzas utilizados no projeto foram carregados a partir do arquivo public/server/pizzas.json.
+</p>
+  <br>
 
-### `yarn eject`
+# 🛠 Tecnologias
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+As seguintes tecnologias foram utilizadas na construção do projeto:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [ReactJS](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Styled Components](https://styled-components.com/)
+- [React Router Dom](https://v5.reactrouter.com/web/guides/quick-start)
+- [Material-UI](https://mui.com/pt/)
+  <br><br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# 🔗 Link do projeto
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Link de demonstração do projeto: [Pizza' Delivery](https://pizza-delivery-silk.vercel.app/)
+  <br>
 
-## Learn More
+# 🚀 Como executar
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Clone o projeto e acesse a pasta.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+$ git clone https://github.com/rodrigorvix/pizza-delivery.git
+$ cd pizza-delivery
+```
+
+Siga os passos abaixo:
+
+```
+# Install the dependencies
+$ yarn ou npm
+
+# Start the project
+$ yarn start
+```
+
+O aplicativo estará disponível para acesso pelo seu navegador em http://localhost:3000
+ <br>
+
+# 📚 Construção do projeto e aprendizados
+
+<p>
+Para realizar a construção do projeto foram seguidos alguns passos:
+
+ -  Definição do layout: para a definição do layout realizei algumas pesquisas na [Dribbble](https://dribbble.com/) e em outros sites de pizzarias com o intuito de adquirir ideias para a construção de um layout simples e amigável. Após as pesquisas, desenhei um wireframe de baixa fidelidade para servir como guia de layout.
+
+ - Definição das tecnologias: como ferramenta decidi escolher o React.JS que é a biblioteca que possuo mais experiência no momento e que atendia aos requisitos de desenvolvimento do projeto.
+
+ - Construção dos componentes/layouts: tenho como método construir todos os componentes e seus estilos com dados estáticos.
+
+ - Dados dinâmicos: após realizada a etapa de construção dos componentes realizo o desenvolvimento de requisões a APIs, uso de rotas, estados, contextos, entre outros. 
+</p>
+
+ <br>
+ Seguem abaixo alguns conceitos das tecnologias que foram utilizadas no projeto:
+
+ ## React:
+    - Conceitos e uso de componentes, propriedades e estados;
+    - Hooks;
+    - Contextos.
+    - Rotas
+
+ ## TypeScript:
+    - Tipagem de variáveis;
+    - Melhoria na descoberta de falhas e bugs.
+  
+  <br>
+  
+# 👨‍💻 Autor
+
+- [Linkedin](https://www.linkedin.com/in/rodrigovitoriense/)
+- [GitHub](https://github.com/rodrigorvix)
+  <br>
+
